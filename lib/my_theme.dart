@@ -9,8 +9,15 @@ class MyThemdata {
       primaryColor: primaryLight,
       scaffoldBackgroundColor: Colors.transparent,
       appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        selectedItemColor: blackColor,
+        unselectedItemColor: whiteColor,
       ),
       textTheme: TextTheme(
         headline1: TextStyle(
