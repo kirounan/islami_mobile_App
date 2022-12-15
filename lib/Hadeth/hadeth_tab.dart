@@ -16,46 +16,44 @@ class _HadethtabState extends State<Hadethtab> {
     if(allHadeth.isEmpty){
       loadHadithFile();
     }
-    return Container(
-      child: Column(
-        children: [
-          Expanded(
-            flex: 3,
-            child:
-              Image.asset("assets/images/hadeth_logo.png"),
+    return Column(
+      children: [
+        Expanded(
+          flex: 3,
+          child:
+            Image.asset("assets/images/hadeth_logo.png"),
+        ),
+        Divider(
+          color: Theme.of(context).primaryColor,
+          thickness: 2,
+        ),
+        Text(
+          "إسم الحديث",
+          style: Theme.of(context).textTheme.subtitle1,
+        ),
+        Divider(
+          color: Theme.of(context).primaryColor,
+          thickness: 2,
+        ),
+        Expanded(
+          flex: 5,
+          child:
+            allHadeth.length==0?
+        Center(child: CircularProgressIndicator(color:Theme.of(context).primaryColor),):
+          ListView.separated(
+            separatorBuilder: (context, index) {
+              return Divider(
+                color: Theme.of(context).primaryColor,
+                thickness: 2,
+              );
+            },
+            itemBuilder: (context, index) {
+              return hadethName(hadeth: allHadeth[index]);
+            },
+            itemCount: allHadeth.length,
           ),
-          Divider(
-            color: Theme.of(context).primaryColor,
-            thickness: 2,
-          ),
-          Text(
-            "إسم الحديث",
-            style: Theme.of(context).textTheme.subtitle1,
-          ),
-          Divider(
-            color: Theme.of(context).primaryColor,
-            thickness: 2,
-          ),
-          Expanded(
-            flex: 5,
-            child:
-              allHadeth.length==0?
-          Center(child: CircularProgressIndicator(color:Theme.of(context).primaryColor),):
-            ListView.separated(
-              separatorBuilder: (context, index) {
-                return Divider(
-                  color: Theme.of(context).primaryColor,
-                  thickness: 2,
-                );
-              },
-              itemBuilder: (context, index) {
-                return hadethName(hadeth: allHadeth[index]);
-              },
-              itemCount: allHadeth.length,
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 
