@@ -9,6 +9,7 @@ class themeBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //SharedPreffernces share = SharedPreffernces();
     var provider = Provider.of<AppConfigProvider>(context);
     return Container(
       padding: EdgeInsets.all(15),
@@ -19,6 +20,7 @@ class themeBottomSheet extends StatelessWidget {
           InkWell(
             onTap: (){
               provider.ChangeTheme(ThemeMode.light);
+
             },
             child:  provider.appTheme==ThemeMode.light?
             getSelectedItem(context, AppLocalizations.of(context)!.light,provider):
